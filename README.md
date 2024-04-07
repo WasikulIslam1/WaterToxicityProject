@@ -9,3 +9,5 @@
 
 5) Dimensional Modeling
 
+The surface water toxicity results are sourced from the California Environmental Data Exchange Network (CEDEN), a data system of the California State Water Board that collects and compiles surface water quality data from across California. This includes field, sediment, and water column data from various environments, contributed by both research and volunteer organizations.
+
