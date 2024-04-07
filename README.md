@@ -11,4 +11,5 @@
 
 Data Link:
 https://data.ca.gov/dataset/surface-water-toxicity-results
-The surface water toxicity results on the California Open Data website come from the California Environmental Data Exchange Network (CEDEN), a comprehensive data system of the California State Water Board. It aggregates surface water quality data from across California, including field, sediment, and water column data from diverse environments, provided by research and volunteer organizations.
+
+The surface water toxicity results are sourced from the California Environmental Data Exchange Network (CEDEN), a data system of the California State Water Board that collects and compiles surface water quality data from across California. This includes field, sediment, and water column data from various environments, contributed by both research and volunteer organizations
