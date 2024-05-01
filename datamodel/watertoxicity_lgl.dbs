@@ -3,7 +3,6 @@
 	<schema name="INSTANCE" catalogname="watertoxicity_lgl" >
 		<table name="dim_analyte" prior="AnalyteName" >
 			<column name="analyte_id" type="INT" jt="4" mandatory="y" />
-			<column name="dw_analyte_name" type="VARCHAR" length="255" jt="12" />
 			<column name="analytedescr" prior="AnalyteDescr" type="VARCHAR" jt="12" />
 			<column name="group1" type="VARCHAR" jt="12" />
 			<column name="group2" type="VARCHAR" jt="12" />
@@ -63,18 +62,19 @@
 			<column name="analyte_id" type="INT" jt="4" mandatory="y" />
 			<column name="collection_id" type="INT" jt="4" mandatory="y" />
 			<column name="date_id" type="INT" jt="4" mandatory="y" />
-			<column name="percenteffect" prior="collection_id" type="INT" jt="4" mandatory="y" />
+			<column name="percenteffect" prior="collection_id" type="INT" jt="4" />
 			<column name="calculatedvalue" type="INT" jt="4" />
 			<column name="evalthreshold" type="DECIMAL" length="10" decimal="5" jt="3" />
 			<column name="dilution" type="DECIMAL" length="10" decimal="5" jt="3" />
 			<column name="result" type="VARCHAR" length="15" jt="12" />
 			<index name="pk_facts_waterquality" unique="PRIMARY_KEY" >
 				<column name="fact_id" />
-				<column name="date_id" />
-				<column name="collection_id" />
 			</index>
-			<fk name="fk_facts_waterquality_dim_station" virtual="y" to_schema="watertoxicity_lgl.INSTANCE" to_table="dim_station" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
-				<fk_column name="station_id" pk="station_id" />
+			<fk name="fk_facts_waterquality_dim_date_0" virtual="y" to_schema="watertoxicity_lgl.INSTANCE" to_table="dim_date" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="date_id" pk="date_id" />
+			</fk>
+			<fk name="fk_facts_waterquality_dim_collection" virtual="y" to_schema="watertoxicity_lgl.INSTANCE" to_table="dim_collection" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="collection_id" pk="collection_id" />
 			</fk>
 			<fk name="fk_facts_waterquality_dim_sample" virtual="y" to_schema="watertoxicity_lgl.INSTANCE" to_table="dim_sample" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
 				<fk_column name="sample_id" pk="sample_id" />
@@ -82,16 +82,13 @@
 			<fk name="fk_facts_waterquality_dim_analyte" virtual="y" to_schema="watertoxicity_lgl.INSTANCE" to_table="dim_analyte" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
 				<fk_column name="analyte_id" pk="analyte_id" />
 			</fk>
-			<fk name="fk_facts_waterquality_dim_date_0" virtual="y" to_schema="watertoxicity_lgl.INSTANCE" to_table="dim_date" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
-				<fk_column name="date_id" pk="date_id" />
-			</fk>
-			<fk name="fk_facts_waterquality_dim_collection" virtual="y" to_schema="watertoxicity_lgl.INSTANCE" to_table="dim_collection" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
-				<fk_column name="collection_id" pk="collection_id" />
+			<fk name="fk_facts_waterquality_dim_station" virtual="y" to_schema="watertoxicity_lgl.INSTANCE" to_table="dim_station" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="station_id" pk="station_id" />
 			</fk>
 		</table>
 	</schema>
 	<layout name="Default Layout" id="Layout-14a4" show_relation="columns" >
-		<entity schema="watertoxicity_lgl.INSTANCE" name="dim_analyte" color="C1D8EE" x="119" y="476" />
+		<entity schema="watertoxicity_lgl.INSTANCE" name="dim_analyte" color="C1D8EE" x="119" y="493" />
 		<entity schema="watertoxicity_lgl.INSTANCE" name="dim_collection" color="C1D8EE" x="119" y="306" />
 		<entity schema="watertoxicity_lgl.INSTANCE" name="dim_date" color="C1D8EE" x="731" y="425" />
 		<entity schema="watertoxicity_lgl.INSTANCE" name="dim_sample" color="C1D8EE" x="527" y="578" />

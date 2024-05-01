@@ -2,7 +2,6 @@ CREATE SCHEMA IF NOT EXISTS "waterquality";
 
 CREATE  TABLE "waterquality".dim_analyte ( 
 	analyte_id           INT  NOT NULL  ,
-	dw_analyte_name      VARCHAR(255)    ,
 	analytedescr         VARCHAR    ,
 	group1               VARCHAR    ,
 	group2               VARCHAR    ,
@@ -57,10 +56,10 @@ CREATE  TABLE "waterquality".facts_waterquality (
 	analyte_id           INT  NOT NULL  ,
 	collection_id        INT  NOT NULL  ,
 	date_id              INT  NOT NULL  ,
-	percenteffect        INT  NOT NULL  ,
+	percenteffect        INT    ,
 	calculatedvalue      INT    ,
 	evalthreshold        DECIMAL(10,5)    ,
 	dilution             DECIMAL(10,5)    ,
 	"result"             VARCHAR(15)    ,
-	CONSTRAINT pk_facts_waterquality PRIMARY KEY ( fact_id, date_id, collection_id, station_id, sample_id, analyte_id )
+	CONSTRAINT pk_facts_waterquality PRIMARY KEY ( fact_id, date_id, collection_id, sample_id, analyte_id, station_id )
  );

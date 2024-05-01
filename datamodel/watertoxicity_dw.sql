@@ -2,7 +2,6 @@ CREATE SCHEMA INSTANCE;
 
 CREATE TABLE watertoxicity_lgl.INSTANCE.dim_analyte ( 
 	analyte_id int64 NOT NULL  ,
-	dw_analyte_name string  ,
 	analytedescr string  ,
 	group1 string  ,
 	group2 string  ,
@@ -62,11 +61,11 @@ CREATE TABLE watertoxicity_lgl.INSTANCE.facts_waterquality (
 	analyte_id int64 NOT NULL  ,
 	collection_id int64 NOT NULL  ,
 	date_id int64 NOT NULL  ,
-	percenteffect int64 NOT NULL  ,
+	percenteffect int64  ,
 	calculatedvalue int64  ,
 	evalthreshold numeric(10,5)  ,
 	dilution numeric(10,5)  ,
 	result string  
  );
 
-ALTER TABLE watertoxicity_lgl.INSTANCE.facts_waterquality ADD PRIMARY KEY ( fact_id, date_id, collection_id, station_id, sample_id, analyte_id )  NOT ENFORCED;
+ALTER TABLE watertoxicity_lgl.INSTANCE.facts_waterquality ADD PRIMARY KEY ( fact_id, date_id, collection_id, sample_id, analyte_id, station_id )  NOT ENFORCED;
